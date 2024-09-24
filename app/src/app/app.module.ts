@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { UrlsListComponent } from './components/urls/urls-list/urls-list.component';
 import { UrlCreateComponent } from './components/urls/url-create/url-create.component';
 import { UrlEditComponent } from './components/urls/url-edit/url-edit.component';
+import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { RegisterComponent } from './components/register/register.component';
     UrlsListComponent,
     UrlCreateComponent,
     UrlEditComponent,
+    LoginComponent,
     RegisterComponent
   ],
   imports: [
