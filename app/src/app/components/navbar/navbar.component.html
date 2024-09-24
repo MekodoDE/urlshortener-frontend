@@ -14,7 +14,19 @@
         <a class="nav-link" href="#">Home</a>
       </li>
     </ul>
-    <!-- Login Button -->
-    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
+
+    <!-- Conditional Buttons -->
+    <div>
+      <ng-container *ngIf="isLoggedIn; else loginRegister">
+        <button class="btn btn-secondary my-2 my-sm-0 me-2" [routerLink]="'/urls'">URLs</button>
+        <button class="btn btn-primary my-2 my-sm-0 me-2" [routerLink]="'/profile'">Profile</button>
+        <button class="btn btn-danger my-2 my-sm-0" (click)="logout()">Logout</button>
+      </ng-container>
+      <ng-template #loginRegister>
+        <button class="btn btn-outline-primary my-2 my-sm-0 me-2" [routerLink]="'/login'">Login</button>
+        <button class="btn btn-primary my-2 my-sm-0" [routerLink]="'/register'">Register</button>
+      </ng-template>
+    </div>
   </div>
 </nav>
+  
