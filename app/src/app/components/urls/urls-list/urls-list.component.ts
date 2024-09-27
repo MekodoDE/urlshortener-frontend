@@ -25,7 +25,7 @@ export class UrlsListComponent {
   }
 
   editUrl(url: any) {
-    this.router.navigate([`/urls/${url.url_key}/edit`]);
+    this.router.navigate([`/url/${url.url_key}/edit`]);
   }
 
   deleteUrl(url: any) {
