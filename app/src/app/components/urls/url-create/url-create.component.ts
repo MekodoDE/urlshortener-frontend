@@ -10,20 +10,26 @@ import { ApiService } from '../../../services/api/api.service';
 export class UrlCreateComponent {
   urlKey: string = '';
   redirectUrl: string = '';
+  isAdmin: boolean = false;
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router) {
+    this.isAdmin = this.apiService.getUserRole() === 'admin';
+  }
 
   onSubmit() {
-    const newUrl = {
-      owner_id: 1,
-      url_key: this.urlKey,
-      redirect_url: this.redirectUrl
+    const newUrl: any = {
+      redirect_url: this.redirectUrl,
     };
+
+    // Add url_key only if the user is an admin
+    if (this.isAdmin) {
+      newUrl.url_key = this.urlKey;
+    }
 
     this.apiService.createUrl(newUrl).subscribe(
       () => {
         // Redirect to the URLs list after successful creation
-        this.router.navigate(['/urls']);
+        this.router.navigate(['/url']);
       },
       (error) => {
         console.error('Error creating URL:', error);
