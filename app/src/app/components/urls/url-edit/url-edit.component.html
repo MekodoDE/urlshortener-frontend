@@ -1,13 +1,25 @@
 <h2>Edit URL</h2>
 
+<!-- Form for editing the URL -->
 <form (ngSubmit)="onSubmit()">
+  <!-- URL Key Field (disabled if not admin or manual control is active) -->
   <div class="form-group">
     <label for="urlKey">URL Key:</label>
-    <input type="text" class="form-control" id="urlKey" [(ngModel)]="urlKey" name="urlKey" required>
+    <input type="text" class="form-control" id="urlKey" [(ngModel)]="urlKey" name="urlKey" [disabled]="!isAdmin" required>
   </div>
+
+  <!-- Redirect URL Field (disabled if not admin or manual control is active) -->
   <div class="form-group">
     <label for="redirectUrl">Redirect URL:</label>
-    <input type="text" class="form-control" id="redirectUrl" [(ngModel)]="redirectUrl" name="redirectUrl" required>
+    <input type="text" class="form-control" id="redirectUrl" [(ngModel)]="redirectUrl" name="redirectUrl" [disabled]="!isAdmin" required>
   </div>
-  <button type="submit" class="btn btn-primary">Save Changes</button>
+
+  <!-- Checkbox to toggle the ability to enable/disable the fields for non-admins -->
+  <div class="form-group form-check mt-2">
+    <input type="checkbox" class="form-check-input" id="isActive" [(ngModel)]="isActive" name="isActive">
+    <label class="form-check-label" for="enableEdit">Active</label>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-primary mt-2">Save Changes</button>
 </form>
