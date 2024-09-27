@@ -14,6 +14,7 @@ import { UrlCreateComponent } from './components/urls/url-create/url-create.comp
 import { UrlEditComponent } from './components/urls/url-edit/url-edit.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RegisterComponent } from './components/register/register.component';
     UrlCreateComponent,
     UrlEditComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
