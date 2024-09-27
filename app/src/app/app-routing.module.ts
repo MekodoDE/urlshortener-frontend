@@ -13,10 +13,10 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'users', component: UserComponent },
-  { path: 'urls/create', component: UrlCreateComponent },
-  { path: 'urls/:urlKey/edit', component: UrlEditComponent },
-  { path: 'urls', component: UrlsListComponent },
+  { path: 'user', component: UserComponent },
+  { path: 'url/create', component: UrlCreateComponent },
+  { path: 'url/:urlKey/edit', component: UrlEditComponent },
+  { path: 'url', component: UrlsListComponent },
   { path: '**', component: RedirectComponent }
 ];
 
