@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,15 +10,18 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   isLoggedIn: boolean = false;
 
-  constructor(private router: Router) {
-    // Check if the user is logged in by looking for the JWT token
-    this.isLoggedIn = !!localStorage.getItem('jwtToken');
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit() {
+    // Subscribe to the login status
+    this.authService.loggedIn$.subscribe((status) => {
+      this.isLoggedIn = status;
+    });
   }
 
   logout() {
-    // Remove the token from localStorage and set isLoggedIn to false
-    localStorage.removeItem('jwtToken');
-    this.isLoggedIn = false;
-    this.router.navigate(['/']); // Redirect to home or login page
+    // Call the AuthService to handle logout
+    this.authService.logout();
+    this.router.navigate(['/']);  // Redirect to home or login page
   }
 }
