@@ -4,9 +4,10 @@
     <img src="assets/images/logo.png" alt="Logo" height="50">
   </a>
   <!-- Navbar Toggler Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  
   <!-- Navbar Content -->
   <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
     <ul class="navbar-nav">
@@ -14,10 +15,12 @@
         <a class="nav-link" href="#">Home</a>
       </li>
     </ul>
-
+  
     <!-- Conditional Buttons -->
     <div>
       <ng-container *ngIf="isLoggedIn; else loginRegister">
+        <!-- Users button (only for admin) -->
+        <button *ngIf="isAdmin" class="btn btn-warning my-2 my-sm-0 me-2" [routerLink]="'/user'">Users</button>
         <button class="btn btn-secondary my-2 my-sm-0 me-2" [routerLink]="'/url'">URLs</button>
         <button class="btn btn-primary my-2 my-sm-0 me-2" [routerLink]="'/profile'">Profile</button>
         <button class="btn btn-danger my-2 my-sm-0" (click)="logout()">Logout</button>
