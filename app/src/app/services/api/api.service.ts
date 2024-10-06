@@ -75,22 +75,22 @@ export class ApiService {
     });
   }
 
-  getUserId(): string | null {
+  getUserId(): string {
     const token = localStorage.getItem('jwtToken');
     if (token) {
       const decoded: any = jwtDecode(token);
       return decoded.sub;
     }
-    return null;
+    return "";
   }
 
-  getUserRole(): string | null {
+  getUserRole(): string {
     const token = localStorage.getItem('access_token');
     if (token) {
       const decoded: any = jwtDecode(token);
       return decoded.role;
     }
-    return null;
+    return "";
   }
 
   // User service
@@ -104,18 +104,18 @@ export class ApiService {
     return this.http.get(url, { headers: this.getHeaders() });
   }
 
-  getUser(urlKey: string): Observable<any> {
-    const url = `${this.config?.apiUrl}/users/${urlKey}`;
+  getUser(userId: string): Observable<any> {
+    const url = `${this.config?.apiUrl}/users/${userId}`;
     return this.http.get(url, { headers: this.getHeaders() });
   }
 
-  updateUser(urlKey: string, userData: any): Observable<any> {
-    const url = `${this.config?.apiUrl}/users/${urlKey}`;
+  updateUser(userId: string, userData: any): Observable<any> {
+    const url = `${this.config?.apiUrl}/users/${userId}`;
     return this.http.put(url, userData, { headers: this.getHeaders() });
   }
 
-  deleteUser(urlKey: string): Observable<any> {
-    const url = `${this.config?.apiUrl}/users/${urlKey}`;
+  deleteUser(userId: string): Observable<any> {
+    const url = `${this.config?.apiUrl}/users/${userId}`;
     return this.http.delete(url, { headers: this.getHeaders() });
   }
 
