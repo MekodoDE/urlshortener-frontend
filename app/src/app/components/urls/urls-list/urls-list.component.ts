@@ -9,10 +9,13 @@ import { ApiService } from '../../../services/api/api.service';
 })
 export class UrlsListComponent {
   urls : any;
+  baseUrl = '';
   
   constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
+    this.baseUrl = window.location.origin + '/';
+
     this.apiService.getUrls().subscribe(
       (response) => {
         console.log(response)
@@ -22,6 +25,16 @@ export class UrlsListComponent {
         console.error('Error fetching URLs:', error);
       }
     );
+  }
+
+  // Function to copy URL to clipboard
+  copyToClipboard(url: string) {
+    const input = document.createElement('textarea');
+    input.value = url;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
   }
 
   editUrl(url: any) {
