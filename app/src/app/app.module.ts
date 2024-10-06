@@ -15,6 +15,10 @@ import { UrlEditComponent } from './components/urls/url-edit/url-edit.component'
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UserCreateComponent } from './components/users/user-create/user-create.component';
+import { UserListComponent } from './components/users/user-list/user-list.component';
+import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { HomeComponent } from './components/home/home.component';
     UrlEditComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent,
+    UserCreateComponent,
+    UserListComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
