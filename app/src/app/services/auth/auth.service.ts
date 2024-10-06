@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,6 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   // BehaviorSubject to track the login state
   private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
-
   // Observable to expose the login state
   loggedIn$ = this.loggedIn.asObservable();
 
@@ -27,5 +27,21 @@ export class AuthService {
   logout() {
     localStorage.removeItem('jwtToken');
     this.loggedIn.next(false);
+  }
+
+  // Check if the user is an admin
+  isAdmin(): boolean {
+    const token = localStorage.getItem('jwtToken');
+    if (token) {
+      try {
+        const decodedToken: any = jwtDecode(token); // Decode the JWT token
+        // Assuming the token contains a 'role' field with the value 'admin'
+        return decodedToken.role === 'admin';
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return false;
+      }
+    }
+    return false;
   }
 }
