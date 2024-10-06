@@ -1,1 +1,19 @@
-<p>You will get redirected.</p>
+<div *ngIf="errorMessage" class="alert alert-danger mt-4">
+  <h3>Oops!</h3>
+  <p>{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="isDeactivated" class="alert alert-warning mt-4">
+  <h3>This URL is no longer active!</h3>
+  <p>It looks like the link you're trying to reach has been deactivated. If you believe this is an error, please contact support.</p>
+</div>
+
+<div *ngIf="!errorMessage && !isDeactivated" class="redirect-message text-center mt-5">
+  <div class="spinner-border text-primary mb-3" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <h2>Hang tight! 🚀</h2>
+  <p>You’re being redirected to <strong>{{ response?.redirect_url }}</strong>.</p>
+  <p>If you’re not redirected automatically, <a [href]="response?.redirect_url">click here</a>.</p>
+</div>
+    
