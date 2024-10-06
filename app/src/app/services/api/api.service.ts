@@ -85,7 +85,7 @@ export class ApiService {
   }
 
   getUserRole(): string {
-    const token = localStorage.getItem('access_token');
+    const token = localStorage.getItem('jwtToken');
     if (token) {
       const decoded: any = jwtDecode(token);
       return decoded.role;
