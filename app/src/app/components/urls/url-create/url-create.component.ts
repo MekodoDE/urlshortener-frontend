@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../../../services/api/api.service';
 
 @Component({
+  standalone: false,
   selector: 'app-url-create',
   templateUrl: './url-create.component.html',
   styleUrl: './url-create.component.scss'

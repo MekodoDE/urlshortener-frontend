@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../../../services/api/api.service';
 
 @Component({
+  standalone: false,
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
   styleUrl: './user-create.component.scss'

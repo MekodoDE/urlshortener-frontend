@@ -3,6 +3,7 @@ import { ApiService } from '../../services/api/api.service';  // Adjust path to 
 import { Router } from '@angular/router';
 
 @Component({
+  standalone: false,
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']

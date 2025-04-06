@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../services/api/api.service';
 
 @Component({
+  standalone: false,
   selector: 'app-url-edit',
   templateUrl: './url-edit.component.html',
   styleUrl: './url-edit.component.scss'
