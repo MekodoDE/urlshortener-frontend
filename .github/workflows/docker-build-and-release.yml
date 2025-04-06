@@ -3,12 +3,12 @@ name: Build and Release Docker Image
 on:
   push:
     branches:
-      - automatic-test-versioning-pipeline
+      - master
     tags:
       - '*'
   pull_request:
     branches:
-      - automatic-test-versioning-pipeline
+      - master
 
 env:
   REGISTRY: ghcr.io
