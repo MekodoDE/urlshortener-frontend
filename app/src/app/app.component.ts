@@ -8,7 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class AppComponent {
-  title = 'urlshortner';
+  title = 'urlshortener';
 
   constructor(private modalService: NgbModal) {
   }
