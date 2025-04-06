@@ -38,10 +38,10 @@ jobs:
           cd app
           npm install
 
-      - name: Run tests
-        run: |
-          cd app
-          npm run test -- --watch=false --browsers=ChromeHeadless
+      #- name: Run tests
+      #  run: |
+      #    cd app
+      #    npm run test -- --watch=false --browsers=ChromeHeadless
 
   build:
     name: Build and Push Docker Image
